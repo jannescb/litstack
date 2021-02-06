@@ -1,7 +1,7 @@
 <template>
     <lit-base-field :field="field" :model="model">
         <template v-if="!field.readonly">
-            <b-dropdown
+            <l-dropdown
                 split
                 variant="input"
                 class="lit-icon-picker"
@@ -9,24 +9,24 @@
             >
                 <div slot="button-content" v-html="value" />
                 <div class="lit-icon-search" v-if="field.search">
-                    <b-input-group size="sm">
-                        <b-input
+                    <l-input-group size="sm">
+                        <l-input
                             v-model="search"
                             :placeholder="__('base.search').capitalize()"
                         />
                         <template v-slot:prepend>
-                            <b-input-group-text>
+                            <l-input-group-text>
                                 <lit-fa-icon icon="search" />
-                            </b-input-group-text>
+                            </l-input-group-text>
                         </template>
-                    </b-input-group>
+                    </l-input-group>
                 </div>
                 <div
                     class="lit-icons-wrapper"
                     :style="field.search ? '' : 'top: 0;'"
                 >
                     <div class="icons">
-                        <b-button
+                        <l-button
                             class="icon"
                             v-for="(icon, key) in searched"
                             :key="key"
@@ -36,7 +36,7 @@
                         />
                     </div>
                 </div>
-            </b-dropdown>
+            </l-dropdown>
         </template>
         <template v-else>
             <div
@@ -74,7 +74,7 @@ export default {
     watch: {
         search(val) {
             console.log(val);
-            this.searched = _.filter(this.field.icons, (icon) => {
+            this.searched = _.filter(this.field.icons, icon => {
                 return icon.includes(val);
             });
         },

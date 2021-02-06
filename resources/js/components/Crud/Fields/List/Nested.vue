@@ -10,21 +10,21 @@
         <li v-for="item in children" :key="item.id" class="">
             <div class="lit-list-entry lit-block mb-2">
                 <table class="w-100">
-                    <b-td class="col-sm" v-if="!field.readonly">
+                    <l-td class="col-sm" v-if="!field.readonly">
                         <i
                             class="fas fa-grip-horizontal text-secondary lit-list__dragbar"
                         ></i>
-                    </b-td>
-                    <b-td>
+                    </l-td>
+                    <l-td>
                         <div class="pl-2 d-inline-block">
                             {{ _format(field.previewTitle, item) }}
                         </div>
-                    </b-td>
-                    <b-td
+                    </l-td>
+                    <l-td
                         class="col-sm text-secondary pl-2"
                         v-if="!field.readonly"
                     >
-                        <b-button
+                        <l-button
                             variant="transparent"
                             v-b-tooltip
                             :title="__('base.item_edit', { item: 'Item' })"
@@ -33,8 +33,8 @@
                             v-b-modal="modalId(item)"
                         >
                             <lit-fa-icon icon="edit" />
-                        </b-button>
-                        <b-button
+                        </l-button>
+                        <l-button
                             variant="transparent"
                             v-b-tooltip
                             :title="__('base.item_add', { item: 'Item' })"
@@ -43,8 +43,8 @@
                             @click="$emit('addItem', item)"
                         >
                             <lit-fa-icon icon="plus" />
-                        </b-button>
-                        <b-button
+                        </l-button>
+                        <l-button
                             variant="transparent"
                             v-b-tooltip
                             :title="__('base.item_delete', { item: 'Item' })"
@@ -53,8 +53,8 @@
                             v-b-modal="`${modalId(item)}-delete`"
                         >
                             <lit-fa-icon icon="trash" />
-                        </b-button>
-                    </b-td>
+                        </l-button>
+                    </l-td>
                 </table>
                 <lit-field-list-modal
                     :item="item"

@@ -1,23 +1,23 @@
 <template>
     <div class="lit-near-items d-inline-block">
-        <b-button
+        <l-button
             :href="`${Lit.baseURL}${routePrefix}/${previous}`"
             :disabled="!previous"
             variant="transparent"
             size="sm"
-            class="btn-square"
+            square
         >
             <lit-fa-icon icon="arrow-left" class="lit-near-items__prev" />
-        </b-button>
-        <b-button
+        </l-button>
+        <l-button
             :href="`${Lit.baseURL}${routePrefix}/${next}`"
             :disabled="!next"
             variant="transparent"
             size="sm"
-            class="btn-square"
+            square
         >
             <lit-fa-icon icon="arrow-right" class="lit-near-items__next" />
-        </b-button>
+        </l-button>
     </div>
 </template>
 

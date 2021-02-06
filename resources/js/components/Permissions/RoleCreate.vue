@@ -1,26 +1,26 @@
 <template>
-    <b-button variant="primary" @click="visible = true">
+    <l-button variant="primary" @click="visible = true">
         <lit-fa-icon icon="plus" />
         {{ __('base.item_add', { item: __('base.role') }).capitalizeAll() }}
-        <b-modal
+        <l-modal
             v-model="visible"
             :title="
                 __('base.item_add', { item: __('base.role') }).capitalizeAll()
             "
         >
-            <b-form-group
+            <l-form-group
                 :label="__('permissions.role_name').capitalizeAll()"
                 label-for="name"
                 :state="nameState"
             >
-                <b-form-input v-model="name" id="name" trim />
-                <b-form-invalid-feedback :state="nameErrorState">
+                <l-form-input v-model="name" id="name" trim />
+                <l-form-invalid-feedback :state="nameErrorState">
                     {{ error('name') }}
-                </b-form-invalid-feedback>
-            </b-form-group>
+                </l-form-invalid-feedback>
+            </l-form-group>
             <template v-slot:modal-footer>
                 <div class="w-100">
-                    <b-button
+                    <l-button
                         variant="primary"
                         size="sm"
                         class="float-right"
@@ -33,16 +33,12 @@
                                 item: __('base.role'),
                             }).capitalizeAll()
                         }}
-                        <b-spinner
-                            label="Loading..."
-                            small
-                            v-if="busy"
-                        ></b-spinner>
-                    </b-button>
+                        <l-spinner label="Loading..." small v-if="busy" />
+                    </l-button>
                 </div>
             </template>
-        </b-modal>
-    </b-button>
+        </l-modal>
+    </l-button>
 </template>
 <script>
 export default {

@@ -1,10 +1,10 @@
 <template>
     <div class="lit-permisson-toggle">
-        <b-form-checkbox
+        <l-form-checkbox
             v-model="checked"
             name="check-button"
             @change="
-                (val) => {
+                val => {
                     this.change(val, true);
                 }
             "
@@ -115,7 +115,10 @@ export default {
             'litPermissionsRolePermissions',
         ]),
         group() {
-            return this.item.name.split(' ').slice(1).join(' ');
+            return this.item.name
+                .split(' ')
+                .slice(1)
+                .join(' ');
         },
         permissionName() {
             return `${this.operation} ${this.group}`;

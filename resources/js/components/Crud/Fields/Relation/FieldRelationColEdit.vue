@@ -1,5 +1,5 @@
 <template>
-    <b-button
+    <l-button
         variant="transparent"
         size="sm"
         class="btn-square"
@@ -17,7 +17,7 @@
             :form="field.update_form"
             @update="$emit('update')"
         />
-    </b-button>
+    </l-button>
 </template>
 
 <script>

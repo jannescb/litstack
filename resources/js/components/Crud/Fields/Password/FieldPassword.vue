@@ -6,8 +6,8 @@
         v-slot:default="{ state }"
         v-on="$listeners"
     >
-        <b-input-group>
-            <b-input
+        <l-input-group>
+            <l-input
                 class="form-control"
                 :value="value"
                 :placeholder="field.placeholder"
@@ -17,15 +17,15 @@
                 aria-describedby="input-live-feedback"
                 @input="changed"
             />
-            <b-input-group-append>
-                <b-button
+            <l-input-group-append>
+                <l-button
                     :variant="show ? 'primary' : 'outline-secondary'"
                     @click="show = !show"
                 >
                     <lit-fa-icon icon="eye" />
-                </b-button>
-            </b-input-group-append>
-        </b-input-group>
+                </l-button>
+            </l-input-group-append>
+        </l-input-group>
         <!-- <div
             class="lit-field-password-score"
             v-if="!_.isEmpty(password) && !field.noScore"

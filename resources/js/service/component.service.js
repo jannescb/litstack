@@ -10,16 +10,22 @@ const requireComponent = require.context(
     /[A-Z]\w+\.(vue)$/
 );
 
-requireComponent.keys().forEach((fileName) => {
+requireComponent.keys().forEach(fileName => {
     // Get component config
     const componentConfig = requireComponent(fileName);
 
     // Get PascalCase name of component
     let componentName = kebabCase(componentConfig.default.name);
 
+    let prefix = 'lit-';
+
+    if (fileName.split('/')[1] == 'Ui') {
+        prefix = '';
+    }
+
     // Register component globally
     Vue.component(
-        `lit-${componentName}`,
+        `${componentName}`,
         componentConfig.default || componentConfig
     );
 });

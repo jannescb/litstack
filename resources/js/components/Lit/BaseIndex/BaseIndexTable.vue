@@ -15,7 +15,7 @@
             v-if="!noHead"
             :no-select="noSelect"
         >
-            <b-checkbox
+            <l-checkbox
                 ref="headerCheckbox"
                 v-if="!radio && indeterminate"
                 slot="checkbox"
@@ -23,7 +23,7 @@
                 indeterminate
                 @change="toggleSelectAll"
             />
-            <b-checkbox
+            <l-checkbox
                 ref="headerCheckbox"
                 v-else="!radio && !indeterminate"
                 slot="checkbox"
@@ -77,7 +77,7 @@
                             ></label>
                         </div>
                         <a href="#" v-else @click.prevent="toggleSelect(item)">
-                            <b-checkbox :checked="isItemSelected(item)" />
+                            <l-checkbox :checked="isItemSelected(item)" />
                         </a>
                     </td>
                     <lit-table-col
@@ -257,7 +257,7 @@ export default {
             this.$emit('loadItems');
         },
         isItemSelected(item) {
-            return this.selectedItems.find((model) => {
+            return this.selectedItems.find(model => {
                 return model ? model.id == item.id : false;
             })
                 ? true

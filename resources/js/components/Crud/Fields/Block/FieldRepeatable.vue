@@ -26,21 +26,21 @@
                 />
             </div>
         </div>
-        <b-modal
+        <l-modal
             v-model="showConfirm"
             :title="__('base.item_remove', { item: field.title }).capitalize()"
         >
             {{ __('base.messages.are_you_sure') }}
 
             <template v-slot:modal-footer>
-                <b-button
+                <l-button
                     variant="secondary"
                     size="sm"
                     class="float-right"
                     @click="showConfirm = false"
                 >
                     {{ __('base.cancel').capitalize() }}
-                </b-button>
+                </l-button>
                 <a
                     href="#"
                     @click.prevent="
@@ -53,7 +53,7 @@
                     {{ __('base.delete').capitalize() }}
                 </a>
             </template>
-        </b-modal>
+        </l-modal>
     </lit-col>
 </template>
 

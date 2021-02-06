@@ -1,7 +1,7 @@
 <template>
-    <b-dropdown-item @click="runAction">
+    <l-dropdown-item @click="runAction">
         {{ title }}
-    </b-dropdown-item>
+    </l-dropdown-item>
 </template>
 
 <script>

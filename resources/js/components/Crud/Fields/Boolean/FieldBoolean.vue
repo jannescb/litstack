@@ -1,6 +1,6 @@
 <template>
     <lit-base-field :field="field" :model="model">
-        <b-form-checkbox
+        <l-form-checkbox
             v-model="val"
             class="lit-form-item-boolean"
             name="check-button"

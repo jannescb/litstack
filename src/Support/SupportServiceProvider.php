@@ -19,6 +19,7 @@ class SupportServiceProvider extends ServiceProvider
         'lit-info'  => InfoComponent::class,
         'lit-blade' => BladeComponent::class,
         'b-button'  => ButtonComponent::class,
+        'l-button'  => ButtonComponent::class,
     ];
 
     /**

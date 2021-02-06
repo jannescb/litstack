@@ -26,8 +26,8 @@
                 tag="tbody"
                 handle=".lit-draggable__dragbar"
             >
-                <b-tr v-for="(relation, key) in relations" :key="key">
-                    <b-td
+                <l-tr v-for="(relation, key) in relations" :key="key">
+                    <l-td
                         v-if="field.sortable && !field.readonly"
                         class="lit-draggable__dragbar position-relative"
                         style="vertical-align:middle;"
@@ -35,7 +35,7 @@
                         <div class="text-center text-muted">
                             <lit-fa-icon icon="grip-vertical" />
                         </div>
-                    </b-td>
+                    </l-td>
 
                     <lit-table-col
                         v-for="(col, i) in field.preview"
@@ -44,16 +44,16 @@
                         :col="col"
                         :cols="field.preview"
                     />
-                    <b-td class="col-sm position-relative">
+                    <l-td class="col-sm position-relative">
                         <div class="d-flex table-controls">
-                            <b-button-group size="sm">
-                                <b-button
+                            <l-button-group size="sm">
+                                <l-button
                                     :href="editUrl(relation, model)"
                                     class="btn-transparent d-flex align-items-center"
                                 >
                                     <lit-fa-icon icon="eye" />
-                                </b-button>
-                                <b-button
+                                </l-button>
+                                <l-button
                                     v-if="!field.readonly"
                                     class="btn-transparent"
                                     @click="
@@ -70,17 +70,17 @@
                                     "
                                 >
                                     <lit-fa-icon icon="unlink" />
-                                </b-button>
+                                </l-button>
                                 <lit-field-relation-confirm-delete
                                     :relation="relation"
                                     :model="model"
                                     :routePrefix="routePrefix(model)"
                                     @confirmed="removeRelation"
                                 />
-                            </b-button-group>
+                            </l-button-group>
                         </div>
-                    </b-td>
-                </b-tr>
+                    </l-td>
+                </l-tr>
             </draggable>
         </template>
     </b-table-simple>

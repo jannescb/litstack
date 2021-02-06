@@ -4,9 +4,9 @@
             class="meta-wrapper"
             :style="`max-width: calc(${googleMetaMaxWidth} + 2rem + 2px)`"
         >
-            <b-row>
+            <l-row>
                 <slot />
-            </b-row>
+            </l-row>
         </div>
     </lit-col>
 </template>

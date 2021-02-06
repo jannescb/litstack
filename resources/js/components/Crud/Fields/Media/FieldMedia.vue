@@ -2,7 +2,7 @@
     <lit-base-field :field="field" :model="model" :value="fileCount">
         <template v-if="model.id">
             <div class="w-100">
-                <b-row>
+                <l-row>
                     <div class="col-12 order-1">
                         <lit-field-media-images
                             :field="field"
@@ -18,7 +18,7 @@
                                 v-if="busy && images.length < field.maxFiles"
                                 slot="busy"
                             >
-                                <b-spinner variant="secondary"></b-spinner>
+                                <l-spinner variant="secondary" />
                             </div>
 
                             <vue-dropzone
@@ -39,9 +39,9 @@
                             />
                         </lit-field-media-images>
                     </div>
-                </b-row>
+                </l-row>
             </div>
-            <b-modal
+            <l-modal
                 :id="cropperId"
                 size="full"
                 v-if="field.crop !== false"
@@ -94,24 +94,20 @@
                     slot="modal-footer"
                     class="w-100 d-flex justify-content-end"
                 >
-                    <b-button variant="secondary" size="sm" @click="cancel()">
+                    <l-button variant="secondary" size="sm" @click="cancel()">
                         Cancel
-                    </b-button>
-                    <b-button
+                    </l-button>
+                    <l-button
                         @click="save()"
                         variant="primary"
                         size="sm"
                         class="ml-2"
                     >
                         Save
-                        <b-spinner
-                            variant="secondary"
-                            v-if="busy"
-                            small
-                        ></b-spinner>
-                    </b-button>
+                        <l-spinner variant="secondary" v-if="busy" small />
+                    </l-button>
                 </div>
-            </b-modal>
+            </l-modal>
         </template>
         <template v-else>
             <lit-field-alert-not-created :field="field" class="mb-0" />

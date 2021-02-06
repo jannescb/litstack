@@ -1,13 +1,13 @@
 <template>
-    <b-row class="lit-container-header mb-4">
-        <b-col cols="12" class="mt-2 mb-2">
+    <l-row class="lit-container-header mb-4">
+        <l-col cols="12" class="mt-2 mb-2">
             <slot>
                 <h3 v-if="title">
                     {{ title }}
                 </h3>
             </slot>
-        </b-col>
-        <b-col
+        </l-col>
+        <l-col
             cols="12"
             class="d-flex justify-content-between lit-container-header__actions"
         >
@@ -18,8 +18,8 @@
             <div>
                 <slot name="actions-right" />
             </div>
-        </b-col>
-    </b-row>
+        </l-col>
+    </l-row>
 </template>
 
 <script>

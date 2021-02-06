@@ -4,7 +4,7 @@
         @click="runOrShowModal"
         style="position: relative;"
     >
-        <b-spinner
+        <l-spinner
             v-if="sendingEventRequest"
             small
             type="grow"
@@ -87,7 +87,7 @@ export default {
         uuidv4() {
             return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
                 /[xy]/g,
-                function (c) {
+                function(c) {
                     var r = (Math.random() * 16) | 0,
                         v = c == 'x' ? r : (r & 0x3) | 0x8;
                     return v.toString(16);

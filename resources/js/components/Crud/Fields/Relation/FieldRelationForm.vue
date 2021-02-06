@@ -1,6 +1,6 @@
 <template>
-    <b-modal :id="modalId" size="lg" :title="field.names.singular">
-        <b-row>
+    <l-modal :id="modalId" size="lg" :title="field.names.singular">
+        <l-row>
             <lit-field
                 v-for="(field, key) in fields"
                 :key="key"
@@ -9,23 +9,23 @@
                 :model="relation"
                 @changed="$emit('update')"
             />
-        </b-row>
+        </l-row>
         <template v-slot:modal-footer>
             <div class="d-flex justify-content-between w-100">
                 <div>
                     <lit-crud-language />
                 </div>
-                <b-button
+                <l-button
                     class="lit-save-button"
                     variant="primary"
                     :disabled="!canSave"
                     @click="Lit.bus.$emit('save')"
                 >
                     {{ __('base.save') }}
-                </b-button>
+                </l-button>
             </div>
         </template>
-    </b-modal>
+    </l-modal>
 </template>
 
 <script>

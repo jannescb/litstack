@@ -1,11 +1,10 @@
 <template>
-    <b-dropdown-item @click="logout">
+    <l-dropdown-item @click="logout">
         <div class="mr-2 d-inline-block lit-topbar__icon">
             <lit-fa-icon icon="sign-out-alt" />
         </div>
-
         Logout
-    </b-dropdown-item>
+    </l-dropdown-item>
 </template>
 
 <script>

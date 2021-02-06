@@ -1,5 +1,5 @@
 <template>
-    <b-button
+    <l-button
         variant="transparent"
         size="sm"
         class="btn-square"
@@ -8,7 +8,7 @@
         :href="link"
     >
         <lit-fa-icon icon="eye" />
-    </b-button>
+    </l-button>
 </template>
 
 <script>

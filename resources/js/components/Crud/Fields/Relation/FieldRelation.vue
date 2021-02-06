@@ -1,7 +1,7 @@
 <template>
     <lit-base-field :field="field" :model="model" class="">
         <template slot="title-right">
-            <b-button
+            <l-button
                 variant="secondary"
                 size="sm"
                 v-b-modal="field.creation_form ? creationModalId : modalId"
@@ -24,7 +24,7 @@
                     :form="field.creation_form"
                     @update="$emit('update')"
                 />
-            </b-button>
+            </l-button>
         </template>
 
         <template v-if="model.id">
@@ -74,7 +74,7 @@
                 >
                     <lit-fa-icon icon="tags" />
                 </div>
-                <b-form-tag
+                <l-form-tag
                     v-for="(relation, key) in selectedRelations"
                     :key="key"
                     @remove="removeRelation(relation)"
@@ -82,10 +82,10 @@
                     :variant="field.tagVariant"
                 >
                     <span v-html="_format(field.tagValue, relation)" />
-                </b-form-tag>
+                </l-form-tag>
             </div>
             <template v-else-if="field.previewType == 'link'">
-                <b-overlay
+                <l-overlay
                     :show="busy"
                     rounded="md"
                     opacity="0.6"
@@ -117,7 +117,7 @@
                             </div>
                         </template>
                     </div>
-                </b-overlay>
+                </l-overlay>
             </template>
 
             <lit-field-relation-confirm-delete

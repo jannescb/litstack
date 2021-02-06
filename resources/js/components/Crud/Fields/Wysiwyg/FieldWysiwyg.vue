@@ -20,21 +20,21 @@
                     v-slot="{ commands, isActive, getMarkAttrs }"
                 >
                     <div class="lit-field-wysiwyg__menu">
-                        <b-dropdown
+                        <l-dropdown
                             v-if="hasControl('format')"
                             :text="format(isActive)"
                             variant="outline-secondary"
                             size="sm"
                             class="lit-field-wysiwyg__menu-dropdown"
                         >
-                            <b-dropdown-item
+                            <l-dropdown-item
                                 :active="isActive.paragraph()"
                                 @click="commands.paragraph"
                             >
                                 Paragraph
-                            </b-dropdown-item>
+                            </l-dropdown-item>
 
-                            <b-dropdown-item
+                            <l-dropdown-item
                                 v-for="level in headingLevels"
                                 :key="level"
                                 :active="isActive.heading({ level })"
@@ -43,9 +43,9 @@
                                 <component :is="`h${level}`">
                                     {{ `H${level}` }}
                                 </component>
-                            </b-dropdown-item>
-                        </b-dropdown>
-                        <b-button
+                            </l-dropdown-item>
+                        </l-dropdown>
+                        <l-button
                             v-if="hasControl('bold')"
                             :variant="
                                 isActive.bold() ? 'primary' : 'transparent'
@@ -55,8 +55,8 @@
                             @click="commands.bold"
                         >
                             <lit-fa-icon icon="bold" />
-                        </b-button>
-                        <b-button
+                        </l-button>
+                        <l-button
                             v-if="hasControl('italic')"
                             :variant="
                                 isActive.italic() ? 'primary' : 'transparent'
@@ -66,9 +66,9 @@
                             @click="commands.italic"
                         >
                             <lit-fa-icon icon="italic" />
-                        </b-button>
+                        </l-button>
 
-                        <b-button
+                        <l-button
                             v-if="hasControl('strike')"
                             :variant="
                                 isActive.strike() ? 'primary' : 'transparent'
@@ -78,9 +78,9 @@
                             @click="commands.strike"
                         >
                             <lit-fa-icon icon="strikethrough" />
-                        </b-button>
+                        </l-button>
 
-                        <b-button
+                        <l-button
                             v-if="hasControl('underline')"
                             :variant="
                                 isActive.underline() ? 'primary' : 'transparent'
@@ -90,9 +90,9 @@
                             @click="commands.underline"
                         >
                             <lit-fa-icon icon="underline" />
-                        </b-button>
+                        </l-button>
 
-                        <b-button
+                        <l-button
                             v-if="hasControl('bullet_list')"
                             :variant="
                                 isActive.bullet_list()
@@ -104,9 +104,9 @@
                             @click="commands.bullet_list"
                         >
                             <lit-fa-icon icon="list-ul" />
-                        </b-button>
+                        </l-button>
 
-                        <b-button
+                        <l-button
                             v-if="hasControl('ordered_list')"
                             :variant="
                                 isActive.ordered_list()
@@ -118,9 +118,9 @@
                             @click="commands.ordered_list"
                         >
                             <lit-fa-icon icon="list-ol" />
-                        </b-button>
+                        </l-button>
 
-                        <b-button
+                        <l-button
                             v-if="hasControl('blockquote')"
                             :variant="
                                 isActive.blockquote()
@@ -132,7 +132,7 @@
                             @click="commands.blockquote"
                         >
                             <lit-fa-icon icon="quote-right" />
-                        </b-button>
+                        </l-button>
 
                         <b-dropdown
                             v-if="hasControl('href')"
@@ -151,13 +151,13 @@
                                 <lit-fa-icon icon="link" />
                             </template>
                             <b-dropdown-form style="min-width: 340px;">
-                                <b-form-input
+                                <l-form-input
                                     v-model="linkUrl"
                                     placeholder="Enter link"
                                     size="sm"
                                     class="mb-2"
-                                ></b-form-input>
-                                <b-checkbox
+                                />
+                                <l-checkbox
                                     v-model="target"
                                     value="_blank"
                                     unchecked-value="_self"
@@ -168,15 +168,15 @@
                                             __('crud.fields.wysiwyg.new_window')
                                         }}
                                     </small>
-                                </b-checkbox>
-                                <b-button
+                                </l-checkbox>
+                                <l-button
                                     class="mt-1 float-right"
                                     variant="primary"
                                     size="sm"
                                     @click="setLinkUrl(commands.custom_link)"
                                 >
                                     {{ __('base.save') }}
-                                </b-button>
+                                </l-button>
                             </b-dropdown-form>
                         </b-dropdown>
 
@@ -196,7 +196,7 @@
                                 <lit-fa-icon icon="palette" />
                             </template>
                             <div class="lit-color-palette-wrapper">
-                                <b-button
+                                <l-button
                                     size="sm"
                                     class="btn-square"
                                     v-for="color in colors"
@@ -207,7 +207,7 @@
                                     :style="
                                         `background: ${color}; border-color: ${color}`
                                     "
-                                ></b-button>
+                                ></l-button>
                             </div>
                         </b-dropdown>
 
@@ -218,32 +218,32 @@
                             :field="field"
                         />
 
-                        <b-button
+                        <l-button
                             variant="outline-secondary"
                             size="sm"
                             class="btn-square"
                             @click="commands.undo"
                         >
                             <lit-fa-icon icon="undo" />
-                        </b-button>
+                        </l-button>
 
-                        <b-button
+                        <l-button
                             variant="outline-secondary"
                             size="sm"
                             class="btn-square"
                             @click="commands.redo"
                         >
                             <lit-fa-icon icon="redo" />
-                        </b-button>
+                        </l-button>
 
-                        <b-button
+                        <l-button
                             class="btn-square"
                             size="sm"
                             :variant="editRaw ? 'primary' : 'outline-secondary'"
                             @click="toggleHtmlView()"
                         >
                             <lit-fa-icon icon="code" />
-                        </b-button>
+                        </l-button>
                     </div>
                 </editor-menu-bar>
 
@@ -254,12 +254,12 @@
                     v-if="!editRaw"
                 />
 
-                <b-form-textarea
+                <l-form-textarea
                     class="lit-field-wysiwyg_raw"
                     v-model="valueCopy"
                     v-if="editRaw"
                     rows="3"
-                ></b-form-textarea>
+                />
             </div>
         </template>
         <template v-else>

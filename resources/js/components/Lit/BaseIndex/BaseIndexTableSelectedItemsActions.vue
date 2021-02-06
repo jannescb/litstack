@@ -1,8 +1,8 @@
 <template>
     <transition name="slide">
         <div v-if="selectedItems.length > 0">
-            <b-input-group size="sm" class="pt-1 pb-3">
-                <b-input-group-prepend is-text>
+            <l-input-group size="sm" class="pt-1 pb-3">
+                <l-input-group-prepend is-text>
                     <strong>
                         {{
                             trans_choice(
@@ -16,7 +16,7 @@
                                 : ''
                         }}
                     </strong>
-                </b-input-group-prepend>
+                </l-input-group-prepend>
                 <template v-slot:append>
                     <b-dropdown
                         style="margin-left: 1px;"
@@ -35,7 +35,7 @@
                         />
                     </b-dropdown>
                 </template>
-            </b-input-group>
+            </l-input-group>
         </div>
     </transition>
 </template>

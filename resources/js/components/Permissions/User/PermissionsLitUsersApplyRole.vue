@@ -10,17 +10,20 @@
                 }).capitalizeAll()
             "
         >
-            <b-dropdown-item
+            <l-dropdown-item
                 href="#"
                 v-for="(role, key) in roles"
                 :key="key"
                 @click="assignRole(role)"
-                >{{
-                    $te(`roles.${role.name}`)
-                        ? __(`roles.${role.name}`).toString().capitalize()
-                        : role.name.capitalize()
-                }}</b-dropdown-item
             >
+                {{
+                    $te(`roles.${role.name}`)
+                        ? __(`roles.${role.name}`)
+                              .toString()
+                              .capitalize()
+                        : role.name.capitalize()
+                }}
+            </l-dropdown-item>
         </b-dropdown-group>
     </b-dropdown>
 </template>

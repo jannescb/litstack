@@ -1,6 +1,6 @@
 <template>
     <div class="mt-2">
-        <b-button
+        <l-button
             class="text-capitalize mr-2"
             :class="`lit-block-add-${type}`"
             size="sm"
@@ -10,7 +10,7 @@
         >
             <lit-fa-icon icon="plus" />
             {{ repeatable.button }}
-        </b-button>
+        </l-button>
     </div>
 </template>
 

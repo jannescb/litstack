@@ -1,12 +1,12 @@
 <template>
-    <b-col cols="12">
+    <l-col cols="12">
         <h6>{{ __('base.system_language').capitalizeAll() }}</h6>
-        <b-select
+        <l-select
             :value="$i18n.locale"
             :options="options"
             @change="setAppLocale"
         />
-    </b-col>
+    </l-col>
 </template>
 
 <script>

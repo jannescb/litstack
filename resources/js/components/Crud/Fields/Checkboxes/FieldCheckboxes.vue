@@ -1,8 +1,8 @@
 <template>
     <lit-base-field :field="field" :model="model">
-        <b-checkbox-group
-            :checked="value"
-            :options="field.options"
+        <l-checkbox-group
+            :value="value"
+            :optcheckedions="field.options"
             :stacked="field.stacked"
             @input="$emit('input', $event)"
             class="lit-form-item-checkboxes"

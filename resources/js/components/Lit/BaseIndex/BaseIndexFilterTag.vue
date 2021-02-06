@@ -1,5 +1,5 @@
 <template>
-    <b-tag
+    <l-tag
         style="height: 28px;"
         variant="primary"
         @remove="$emit('remove', filter)"
@@ -12,7 +12,7 @@
                 {{ formatted(value, attribute) }}
             </template>
         </template>
-    </b-tag>
+    </l-tag>
 </template>
 <script>
 export default {

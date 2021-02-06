@@ -12,47 +12,47 @@
             <lit-fa-icon icon="table" />
         </template>
         <div class="lit-color-palette-wrapper">
-            <b-button
+            <l-button
                 size="sm"
                 variant="outline-secondary"
                 class="btn-square"
                 @click="deleteTable"
             >
                 <lit-fa-icon icon="trash" />
-            </b-button>
-            <b-button
+            </l-button>
+            <l-button
                 size="sm"
                 variant="outline-secondary"
                 class="btn-square"
                 @click="addColumnAfter"
             >
                 <lit-fa-icon icon="plus-square" />
-            </b-button>
-            <b-button
+            </l-button>
+            <l-button
                 size="sm"
                 variant="outline-secondary"
                 class="btn-square"
                 @click="deleteColumn"
             >
                 <lit-fa-icon icon="minus-square" />
-            </b-button>
+            </l-button>
 
-            <b-button
+            <l-button
                 size="sm"
                 variant="outline-secondary"
                 class="btn-square"
                 @click="addRowAfter"
             >
                 <lit-fa-icon icon="plus" />
-            </b-button>
-            <b-button
+            </l-button>
+            <l-button
                 size="sm"
                 variant="outline-secondary"
                 class="btn-square"
                 @click="deleteRow"
             >
                 <lit-fa-icon icon="minus" />
-            </b-button>
+            </l-button>
         </div>
     </b-dropdown>
 </template>

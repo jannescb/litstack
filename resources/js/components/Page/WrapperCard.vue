@@ -1,16 +1,16 @@
 <template>
     <lit-col :width="width">
-        <b-card class="lit-crud-card">
+        <l-card class="lit-crud-card">
             <h6
                 v-if="title"
                 v-html="title"
                 class="mb-4"
                 style="font-size: 1.125rem;"
             />
-            <b-row>
+            <l-row>
                 <slot />
-            </b-row>
-        </b-card>
+            </l-row>
+        </l-card>
     </lit-col>
 </template>
 

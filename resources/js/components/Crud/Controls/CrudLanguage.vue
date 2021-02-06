@@ -85,7 +85,7 @@ export default {
          * @return {String}
          */
         wrapper() {
-            return this.dropdown ? 'b-dropdown' : 'b-button-group';
+            return this.dropdown ? 'b-dropdown' : 'l-button-group';
         },
 
         /**
@@ -94,7 +94,7 @@ export default {
          * @return {String}
          */
         child() {
-            return this.dropdown ? 'b-dropdown-item' : 'b-button';
+            return this.dropdown ? 'b-dropdown-item' : 'l-button';
         },
     },
 };

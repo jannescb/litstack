@@ -1,5 +1,5 @@
 <template>
-    <b-button
+    <l-button
         variant="transparent"
         size="sm"
         class="btn-square"
@@ -12,7 +12,7 @@
         @click="$emit('unlink', item)"
     >
         <span v-html="icon"></span>
-    </b-button>
+    </l-button>
 </template>
 
 <script>

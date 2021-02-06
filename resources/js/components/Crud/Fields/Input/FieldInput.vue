@@ -6,12 +6,12 @@
         v-slot:default="{ state }"
         v-on="$listeners"
     >
-        <b-input-group :size="field.size">
-            <b-input-group-prepend is-text v-if="field.prepend">
+        <l-input-group :size="field.size">
+            <l-input-group-prepend is-text v-if="field.prepend">
                 <span v-html="field.prepend"></span>
-            </b-input-group-prepend>
+            </l-input-group-prepend>
 
-            <b-input
+            <l-input
                 ref="input"
                 class="form-control lit-field-input"
                 :value="value"
@@ -25,10 +25,10 @@
                 @input="$emit('input', $event)"
             />
 
-            <b-input-group-append is-text v-if="field.append">
+            <l-input-group-append is-text v-if="field.append">
                 <span v-html="field.append"></span>
-            </b-input-group-append>
-        </b-input-group>
+            </l-input-group-append>
+        </l-input-group>
 
         <slot />
     </lit-base-field>

@@ -11,7 +11,7 @@
             </template>
 
             <template v-if="!!scopes.fields">
-                <b-dropdown-text
+                <l-dropdown-text
                     v-for="(field, key) in scopes.fields"
                     :key="`filter-${title}-${key}`"
                 >
@@ -22,22 +22,22 @@
                         :model-id="0"
                         :model="getModelFor(title)"
                         :save="false"
-                        @changed="(value) => updateFilter(field, title, value)"
+                        @changed="value => updateFilter(field, title, value)"
                     />
-                </b-dropdown-text>
+                </l-dropdown-text>
             </template>
-            <b-dropdown-text
+            <l-dropdown-text
                 v-else
                 v-for="(item, scope) in scopes"
                 :key="`filter-${title}-${scope}`"
             >
-                <b-form-checkbox
+                <l-form-checkbox
                     @change="toggleFilter(scope)"
                     :checked="filterActive(scope)"
                 >
                     {{ item }}
-                </b-form-checkbox>
-            </b-dropdown-text>
+                </l-form-checkbox>
+            </l-dropdown-text>
         </b-dropdown>
         <!-- <b-dropdown
 			right
@@ -58,19 +58,19 @@
 				v-for="(group, key) in filter"
 				:key="key"
 			>
-				<b-dropdown-item-button
+				<l-dropdown-item-button
 					v-for="(item, index) in group"
 					@click="toggleFilter(index)"
 					:key="item"
 					:active="filterActive(index)"
 				>
 					{{ item }}
-				</b-dropdown-item-button>
+				</l-dropdown-item-button>
 			</b-dropdown-group>
-			<b-dropdown-divider></b-dropdown-divider>
-			<b-dropdown-item-button @click="resetFilter">
+			<l-dropdown-divider/>
+			<l-dropdown-item-button @click="resetFilter">
 				reset
-			</b-dropdown-item-button>
+			</l-dropdown-item-button>
 		</b-dropdown> -->
     </span>
 </template>

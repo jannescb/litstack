@@ -19,15 +19,15 @@
             :key="image.id"
         >
             <div class="lit-image-card__controls">
-                <b-button
+                <l-button
                     v-if="!field.readonly && field.maxFiles > 1"
                     size="sm"
                     variant="link"
                     class="text-secondary lit-image-card__controls_drag lit-draggable__dragbar"
                 >
                     <lit-fa-icon icon="grip-vertical" />
-                </b-button>
-                <b-button
+                </l-button>
+                <l-button
                     v-if="!field.readonly"
                     size="sm"
                     variant="link"
@@ -35,15 +35,15 @@
                     @click="deleteImage(image, index)"
                 >
                     <lit-fa-icon icon="trash" />
-                </b-button>
-                <b-button
+                </l-button>
+                <l-button
                     size="sm"
                     variant="link"
                     class="text-secondary lit-image-card__controls_edit"
                     v-b-modal="`lit-image-${field.id}-${image.id}`"
                 >
                     <i :class="`fas fa-${field.readonly ? 'eye' : 'edit'}`"></i>
-                </b-button>
+                </l-button>
             </div>
             <div
                 :class="{
@@ -71,7 +71,7 @@
                 :model-id="modelId"
                 @delete="deleteImage(image, index)"
             />
-            <b-modal
+            <l-modal
                 :id="deleteImageModalId(image)"
                 size="md"
                 :title="
@@ -83,14 +83,14 @@
                 {{ __('base.messages.are_you_sure') }}
 
                 <template v-slot:modal-footer>
-                    <b-button
+                    <l-button
                         variant="secondary"
                         size="sm"
                         class="float-right"
                         @click="$bvModal.hide(deleteImageModalId(image))"
                     >
                         {{ __('base.cancel').capitalize() }}
-                    </b-button>
+                    </l-button>
                     <a
                         href="#"
                         @click.prevent="
@@ -103,7 +103,7 @@
                         {{ __('base.delete').capitalize() }}
                     </a>
                 </template>
-            </b-modal>
+            </l-modal>
         </div>
 
         <slot name="busy" />

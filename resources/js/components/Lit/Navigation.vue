@@ -1,6 +1,6 @@
 <template>
-    <b-row class="lit-page-navigation" :class="{ 'can-save': canSave }">
-        <b-col
+    <l-row class="lit-page-navigation" :class="{ 'can-save': canSave }">
+        <l-col
             cols="12"
             class="d-flex justify-content-end justify-content-lg-between align-items-center lit-page-navigation__container"
         >
@@ -59,7 +59,7 @@
                     :class="{ loaded: loaded }"
                     :style="buttonStyle"
                 >
-                    <b-button
+                    <l-button
                         variant="outline-secondary"
                         class="btn-square mr-3"
                         v-b-tooltip
@@ -67,8 +67,8 @@
                         @click="Lit.bus.$emit('cancelSave')"
                     >
                         <lit-fa-icon icon="undo" />
-                    </b-button>
-                    <b-button
+                    </l-button>
+                    <l-button
                         variant="primary"
                         size="md"
                         :disabled="!canSave"
@@ -76,11 +76,11 @@
                         @click="Lit.bus.$emit('save')"
                     >
                         {{ __('base.save') }}
-                    </b-button>
+                    </l-button>
                 </div>
             </div>
-        </b-col>
-    </b-row>
+        </l-col>
+    </l-row>
 </template>
 
 <script>

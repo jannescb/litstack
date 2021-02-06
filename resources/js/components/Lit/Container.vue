@@ -1,7 +1,7 @@
 <template>
-    <b-container :class="`lit-container`" :fluid="fluid">
+    <l-container :class="`lit-container`" :fluid="fluid">
         <slot />
-    </b-container>
+    </l-container>
 </template>
 
 <script>

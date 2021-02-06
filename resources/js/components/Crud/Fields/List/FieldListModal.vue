@@ -1,7 +1,7 @@
 <template>
-    <b-modal :id="modalId" :size="field.modalSize" centered>
+    <l-modal :id="modalId" :size="field.modalSize" centered>
         <span slot="modal-title" v-html="_format(field.previewTitle, item)" />
-        <b-row>
+        <l-row>
             <lit-field
                 v-for="(itemField, key) in fields"
                 :key="key"
@@ -10,7 +10,7 @@
                 :model="item"
                 v-on="$listeners"
             />
-        </b-row>
+        </l-row>
         <template slot="modal-footer">
             <div class="d-flex justify-content-between w-100">
                 <div>
@@ -23,18 +23,18 @@
                     >
                         {{ __('base.close').capitalize() }}
                     </button>
-                    <b-button
+                    <l-button
                         class="lit-save-button"
                         variant="primary"
                         v-bind:disabled="!canSave"
                         @click="Lit.bus.$emit('save')"
                     >
                         {{ __('base.save').capitalize() }}
-                    </b-button>
+                    </l-button>
                 </div>
             </div>
         </template>
-    </b-modal>
+    </l-modal>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-    <b-modal
+    <l-modal
         :id="modalId"
         size="lg"
         hide-footer
@@ -7,9 +7,9 @@
     >
         <template slot="modal-title">
             {{ title.capitalize() }}
-            <!-- <b-button size="sm" variant="primary" @click="createNew">
+            <!-- <l-button size="sm" variant="primary" @click="createNew">
 				<lit-fa-icon icon="plus" /> Create New
-			</b-button> -->
+			</l-button> -->
         </template>
         <lit-index-table
             ref="table"
@@ -28,7 +28,7 @@
             no-head
             small
         />
-    </b-modal>
+    </l-modal>
 </template>
 
 <script>

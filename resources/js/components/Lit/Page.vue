@@ -37,18 +37,18 @@
                 />
             </template>
         </lit-header>
-        <b-row>
+        <l-row>
             <lit-col :width="12">
-                <b-row>
+                <l-row>
                     <lit-base-component
                         v-for="(component, key) in page.components"
                         v-bind="{ ...page.props, ...$attrs }"
                         :component="component"
                         :key="key"
                     />
-                </b-row>
+                </l-row>
             </lit-col>
-        </b-row>
+        </l-row>
     </lit-container>
 </template>
 

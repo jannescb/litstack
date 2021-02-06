@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-form-tag
+        <l-form-tag
             v-for="(role, key) in item.ordered_roles"
             @remove="removeRole(role)"
             :key="key"
@@ -9,7 +9,7 @@
             v-bind:disabled="!can('update lit-user-roles')"
         >
             {{ translateRole(role) }}
-        </b-form-tag>
+        </l-form-tag>
     </div>
 </template>
 <script>

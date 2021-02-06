@@ -1,5 +1,5 @@
 <template>
-    <b-dropdown
+    <l-dropdown
         :text="active.title"
         variant="outline-secondary"
         class="mt-auto mb-2"
@@ -8,15 +8,15 @@
         <template v-slot:button-content>
             <lit-fa-icon icon="chart-line" /> {{ active.title }}
         </template>
-        <b-dropdown-item
+        <l-dropdown-item
             v-for="(option, key) in options"
             :key="key"
             @click="active = option"
             v-bind:active="active == option"
         >
             {{ option.title }}
-        </b-dropdown-item>
-    </b-dropdown>
+        </l-dropdown-item>
+    </l-dropdown>
 </template>
 
 <script>

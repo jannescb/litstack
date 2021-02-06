@@ -1,5 +1,5 @@
 <template>
-    <b-modal
+    <l-modal
         :id="modalId"
         :title="
             __('base.item_remove', {
@@ -18,7 +18,7 @@
         </template>
 
         <template v-slot:modal-footer>
-            <b-button
+            <l-button
                 variant="secondary"
                 size="sm"
                 class="float-right"
@@ -28,7 +28,7 @@
                 "
             >
                 {{ __('base.cancel').capitalize() }}
-            </b-button>
+            </l-button>
             <a
                 href="#"
                 @click.prevent="
@@ -41,7 +41,7 @@
                 {{ __('base.delete').capitalize() }}
             </a>
         </template>
-    </b-modal>
+    </l-modal>
 </template>
 
 <script>

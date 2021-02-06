@@ -1,7 +1,7 @@
 <template>
-    <b-col cols="12" :xl="cols">
+    <l-col cols="12" :xl="cols">
         <slot />
-    </b-col>
+    </l-col>
 </template>
 
 <script>

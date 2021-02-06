@@ -1,9 +1,9 @@
 <!--
 <template>
     <lit-col :width="width">
-        <b-row>
+        <l-row>
             <slot />
-        </b-row>
+        </l-row>
     </lit-col>
 </template>
 -->

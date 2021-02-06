@@ -1,9 +1,11 @@
 <template>
     <lit-col :width="width" :class="field.class">
         <div
-            :class="`${field.no_title ? '' : 'pb-3'} lit-form lit-form-item-${
-                field.id
-            }`"
+            :class="
+                `${field.no_title ? '' : 'pb-3'} lit-form lit-form-item-${
+                    field.id
+                }`
+            "
         >
             <label
                 class="lit-form-item-title mb-2 d-flex justify-content-between"
@@ -13,9 +15,9 @@
                 <span v-html="field.title"></span>
                 <div>
                     <slot name="title-right" />
-                    <b-badge v-if="field.translatable" variant="secondary">
+                    <l-badge v-if="field.translatable" variant="secondary">
                         <small>{{ language }}</small>
-                    </b-badge>
+                    </l-badge>
 
                     <template v-if="field.info">
                         <lit-fa-icon
@@ -23,32 +25,32 @@
                             icon="question-circle"
                             class="text-secondary"
                         />
-                        <b-tooltip
+                        <l-tooltip
                             :target="`lit-form-item-${field.id}-info`"
                             :delay="10"
                         >
                             {{ field.info }}
-                        </b-tooltip>
+                        </l-tooltip>
                     </template>
                 </div>
             </label>
             <div class="input-group">
                 <slot :state="state" />
-                <b-form-invalid-feedback
+                <l-form-invalid-feedback
                     v-for="(message, key) in messages"
                     :key="key"
                     :style="`display:${state == null ? 'none' : 'block'}`"
                 >
                     {{ message }}
-                </b-form-invalid-feedback>
+                </l-form-invalid-feedback>
             </div>
             <div
                 class="d-flex justify-content-between"
                 v-if="
                     (field.hint && !noHint) ||
-                    field.max ||
-                    field.min ||
-                    field.maxFiles
+                        field.max ||
+                        field.min ||
+                        field.maxFiles
                 "
             >
                 <small

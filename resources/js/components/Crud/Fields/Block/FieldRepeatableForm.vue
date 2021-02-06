@@ -1,5 +1,5 @@
 <template>
-    <b-row class="mt-3">
+    <l-row class="mt-3">
         <lit-field
             ref="fields"
             v-for="(field, key) in fields"
@@ -9,7 +9,7 @@
             :model="block"
             v-on="$listeners"
         />
-    </b-row>
+    </l-row>
 </template>
 
 <script>

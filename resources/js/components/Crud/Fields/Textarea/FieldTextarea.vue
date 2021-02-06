@@ -6,7 +6,7 @@
         :max="field.maxChars"
         v-slot:default="{ state }"
     >
-        <b-form-textarea
+        <l-form-textarea
             :value="value"
             :placeholder="field.placeholder"
             :rows="field.rows"

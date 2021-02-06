@@ -19,7 +19,7 @@
         </template>
 
         <template v-else>
-            <b-input
+            <l-input
                 class="form-control"
                 :value="reduceByValue(value)"
                 type="text"

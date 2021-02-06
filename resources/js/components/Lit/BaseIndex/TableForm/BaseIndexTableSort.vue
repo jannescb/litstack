@@ -1,5 +1,5 @@
 <template>
-    <b-dropdown
+    <l-dropdown
         right
         variant="outline-secondary"
         v-if="sortBy"
@@ -11,16 +11,16 @@
             <span class="d-none d-lg-inline-block">{{ __('base.sort') }}</span>
         </template>
 
-        <b-dropdown-item
+        <l-dropdown-item
             v-for="(text, key) in sortBy"
             :key="key"
             @click="sort(key)"
         >
-            <b-form-radio :checked="sort_by_key" :value="key">
+            <l-form-radio :checked="sort_by_key" :value="key">
                 {{ text }}
-            </b-form-radio>
-        </b-dropdown-item>
-    </b-dropdown>
+            </l-form-radio>
+        </l-dropdown-item>
+    </l-dropdown>
 </template>
 
 <script>

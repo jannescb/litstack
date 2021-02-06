@@ -1,6 +1,6 @@
 <template>
-    <b-list-group flush>
-        <b-list-group-item
+    <l-list-group flush>
+        <l-list-group-item
             v-if="isTitle"
             class="lit-nav-title"
             v-html="item.title"
@@ -16,7 +16,7 @@
         </template>
         <template v-else>
             <component :is="item.component" v-if="hasComponent" />
-            <b-list-group-item
+            <l-list-group-item
                 size="sm"
                 :active="active"
                 :href="link"
@@ -38,7 +38,7 @@
                         class="float-right text-sm"
                     />
                 </div>
-            </b-list-group-item>
+            </l-list-group-item>
             <b-collapse v-if="hasChildren" v-model="visible">
                 <div class="lit-navigation-spacer">
                     <lit-nav-item
@@ -49,7 +49,7 @@
                 </div>
             </b-collapse>
         </template>
-    </b-list-group>
+    </l-list-group>
 </template>
 
 <script>

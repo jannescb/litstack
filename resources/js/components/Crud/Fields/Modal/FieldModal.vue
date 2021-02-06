@@ -1,6 +1,6 @@
 <template>
     <lit-base-field :field="field" :model="model">
-        <b-button
+        <l-button
             :variant="field.variant"
             v-b-modal="modalId"
             v-html="field.name"
@@ -26,16 +26,16 @@
             :component="field.button_component"
             :model="model"
         />
-        <b-form-invalid-feedback
+        <l-form-invalid-feedback
             v-for="(message, key) in messages"
             :key="key"
             style="display: block;"
         >
             {{ message }}
-        </b-form-invalid-feedback>
-        <b-modal :id="modalId" :size="field.size" centered>
+        </l-form-invalid-feedback>
+        <l-modal :id="modalId" :size="field.size" centered>
             <span slot="modal-title" v-html="field.name" />
-            <b-row>
+            <l-row>
                 <lit-field
                     v-for="(field, key) in fields"
                     :key="key"
@@ -45,7 +45,7 @@
                     @error="error"
                     v-on="$listeners"
                 />
-            </b-row>
+            </l-row>
             <template slot="modal-footer">
                 <button
                     @click.prevent="$bvModal.hide(modalId)"
@@ -53,16 +53,16 @@
                 >
                     {{ __('base.close').capitalize() }}
                 </button>
-                <b-button
+                <l-button
                     class="lit-save-button"
                     variant="primary"
                     v-bind:disabled="!canSave"
                     @click="Lit.bus.$emit('save')"
                 >
                     {{ __('base.save') }}
-                </b-button>
+                </l-button>
             </template>
-        </b-modal>
+        </l-modal>
     </lit-base-field>
 </template>
 

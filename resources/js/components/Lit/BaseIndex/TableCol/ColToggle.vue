@@ -1,5 +1,5 @@
 <template>
-    <b-checkbox v-model="value" switch @change="update" />
+    <l-checkbox v-model="value" switch @change="update" />
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-    <b-button
+    <l-button
         size="sm"
         variant="danger"
         v-b-modal.lit-confirm-delete-role
@@ -10,7 +10,7 @@
                 item: `${__('base.role')} ${tab.title}`,
             })
         }}
-        <b-modal
+        <l-modal
             id="lit-confirm-delete-role"
             :title="
                 __('base.messages.are_you_sure', {
@@ -18,7 +18,7 @@
                 })
             "
         >
-            <b-alert
+            <l-alert
                 show
                 variant="warning"
                 v-html="
@@ -29,7 +29,7 @@
             />
             <template v-slot:modal-footer>
                 <div class="w-100">
-                    <b-button
+                    <l-button
                         variant="danger"
                         size="sm"
                         class="float-right"
@@ -41,11 +41,11 @@
                                 item: __('base.role'),
                             })
                         }}
-                    </b-button>
+                    </l-button>
                 </div>
             </template>
-        </b-modal>
-    </b-button>
+        </l-modal>
+    </l-button>
 </template>
 <script>
 export default {

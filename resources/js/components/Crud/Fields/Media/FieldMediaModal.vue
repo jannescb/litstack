@@ -1,5 +1,5 @@
 <template>
-    <b-modal
+    <l-modal
         :id="`lit-image-${field.id}-${image.id}`"
         size="full"
         class="lit-image-modal"
@@ -42,12 +42,12 @@
                     class="justify-content-between mb-3"
                     :style="`display:${cropping ? 'flex' : 'none'}`"
                 >
-                    <b-button @click="cancelCrop">
+                    <l-button @click="cancelCrop">
                         {{ __('base.undo_changes').capitalize() }}
-                    </b-button>
-                    <b-button variant="primary" @click="toggleCrop">
+                    </l-button>
+                    <l-button variant="primary" @click="toggleCrop">
                         {{ __('base.done').capitalize() }}
-                    </b-button>
+                    </l-button>
                 </div>
                 <div
                     class="r4x3 mb-2"
@@ -63,15 +63,15 @@
                     <div class="mb-2">
                         <div class="mb-2 d-flex justify-content-between">
                             <label class="m-0">Title</label>
-                            <b-badge
+                            <l-badge
                                 v-if="field.translatable"
                                 variant="secondary"
                             >
                                 <small>{{ language }}</small>
-                            </b-badge>
+                            </l-badge>
                         </div>
 
-                        <b-input
+                        <l-input
                             v-bind:readonly="field.readonly"
                             :value="getCustomProperty(image, 'title')"
                             class="dark"
@@ -88,14 +88,14 @@
                     <div class="mb-2">
                         <div class="mb-2 d-flex justify-content-between">
                             <label class="m-0">Alt</label>
-                            <b-badge
+                            <l-badge
                                 v-if="field.translatable"
                                 variant="secondary"
                             >
                                 <small>{{ language }}</small>
-                            </b-badge>
+                            </l-badge>
                         </div>
-                        <b-input
+                        <l-input
                             v-bind:readonly="field.readonly"
                             :value="getCustomProperty(image, 'alt')"
                             class="dark"
@@ -112,16 +112,16 @@
         </div>
         <div slot="modal-footer" class="w-100 d-flex justify-content-between">
             <div>
-                <b-button
+                <l-button
                     @click.prevent="destroy(image.id, index)"
                     variant="danger"
                     v-if="!field.readonly"
                 >
                     <i class="far fa-trash-alt"></i>
                     {{ __('base.delete').capitalize() }}
-                </b-button>
+                </l-button>
             </div>
-            <b-button
+            <l-button
                 v-if="croppable"
                 @click="toggleCrop"
                 variant="primary"
@@ -129,23 +129,23 @@
             >
                 <lit-fa-icon icon="crop-alt" />
                 {{ __('base.crop').capitalize() }}
-            </b-button>
+            </l-button>
             <div class="d-flex">
                 <lit-crud-language
                     class="mr-2"
                     v-if="this.field.translatable"
                 />
-                <b-button
+                <l-button
                     class="lit-save-button"
                     variant="primary"
                     :disabled="!canSave"
                     @click="Lit.bus.$emit('save')"
                 >
                     {{ __('base.save').capitalize() }}
-                </b-button>
+                </l-button>
             </div>
         </div>
-    </b-modal>
+    </l-modal>
 </template>
 
 <script>

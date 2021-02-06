@@ -15,7 +15,7 @@ class ButtonComponent extends Component
      *
      * @var string
      */
-    protected $name = 'b-button';
+    protected $name = 'l-button';
 
     /**
      * Before mount.

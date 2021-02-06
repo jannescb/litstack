@@ -1,7 +1,7 @@
 <template>
-    <b-dropdown-item @click="deleteAll">
+    <l-dropdown-item @click="deleteAll">
         Delete {{ selectedItems.length }} Items
-    </b-dropdown-item>
+    </l-dropdown-item>
 </template>
 
 <script>

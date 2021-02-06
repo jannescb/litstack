@@ -1,5 +1,5 @@
 <template>
-    <b-td
+    <l-td
         :class="{
             'col-sm': isSmall(col),
             'lit-table-col': true,
@@ -25,7 +25,7 @@
 
             <span v-else v-html="value" />
         </component>
-    </b-td>
+    </l-td>
 </template>
 
 <script>

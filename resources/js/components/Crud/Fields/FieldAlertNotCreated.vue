@@ -1,6 +1,6 @@
 <template>
     <div class="form-control-expand">
-        <b-alert
+        <l-alert
             show
             variant="warning"
             v-html="

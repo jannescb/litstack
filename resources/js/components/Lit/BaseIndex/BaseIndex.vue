@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-card
+        <l-card
             no-body
             class="lit-index-table"
             :style="noCard ? 'box-shadow: none;' : ''"
@@ -20,14 +20,14 @@
                 <lit-base-index-table-form
                     v-if="
                         searchKeys.length != 0 ||
-                        !_.isEmpty(sortBy) ||
-                        !_.isEmpty(filter)
+                            !_.isEmpty(sortBy) ||
+                            !_.isEmpty(filter)
                     "
                 >
-                    <b-input-group>
-                        <b-input-group-prepend is-text>
+                    <l-input-group>
+                        <l-input-group-prepend is-text>
                             <lit-fa-icon icon="search" />
-                        </b-input-group-prepend>
+                        </l-input-group-prepend>
 
                         <lit-base-index-table-search
                             :name-singular="nameSingular"
@@ -41,7 +41,7 @@
                             "
                         />
 
-                        <b-input-group-append
+                        <l-input-group-append
                             is-text
                             class="lit-index-table__active-filters"
                             variant="primary"
@@ -54,8 +54,8 @@
                                 :filter="scope"
                                 @remove="removeFilter"
                             />
-                        </b-input-group-append>
-                    </b-input-group>
+                        </l-input-group-append>
+                    </l-input-group>
                     <lit-base-index-table-filter
                         :filter="filter"
                         :filter-scopes="filter_scopes"
@@ -124,7 +124,7 @@
                     />
                 </div>
             </div>
-        </b-card>
+        </l-card>
     </div>
 </template>
 
@@ -362,7 +362,7 @@ export default {
         },
         addCustomFilter(newFilter) {
             let match = false;
-            this.filter_scopes = _.map(this.filter_scopes, function (filter) {
+            this.filter_scopes = _.map(this.filter_scopes, function(filter) {
                 if (typeof scope === 'object') {
                     return filter;
                 }
@@ -426,7 +426,7 @@ export default {
             }
         },
         isItemSelected(item) {
-            return this.selectedItems.find((model) => {
+            return this.selectedItems.find(model => {
                 return model ? model.id == item.id : false;
             })
                 ? true

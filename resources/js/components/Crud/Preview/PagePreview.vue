@@ -1,12 +1,12 @@
 <template>
-    <b-modal id="lit-page-preview" size="full" hide-footer>
+    <l-modal id="lit-page-preview" size="full" hide-footer>
         <template slot="modal-header" slot-scope="{ close }">
             <!-- Emulate built in modal header close button action -->
 
             <div></div>
 
             <div class="device-btns">
-                <b-button
+                <l-button
                     class="mr-2 btn-square"
                     :variant="
                         device == 'mobile' ? 'secondary' : 'outline-secondary'
@@ -14,8 +14,8 @@
                     @click="setDevice('mobile')"
                 >
                     <lit-fa-icon fas icon="mobile-alt" />
-                </b-button>
-                <b-button
+                </l-button>
+                <l-button
                     class="mr-2 btn-square"
                     :variant="
                         device == 'tablet' ? 'secondary' : 'outline-secondary'
@@ -23,8 +23,8 @@
                     @click="setDevice('tablet')"
                 >
                     <lit-fa-icon fas icon="tablet-alt" />
-                </b-button>
-                <b-button
+                </l-button>
+                <l-button
                     @click="setDevice('desktop')"
                     :variant="
                         device == 'desktop' ? 'secondary' : 'outline-secondary'
@@ -32,7 +32,7 @@
                     class="btn-square"
                 >
                     <lit-fa-icon fas icon="desktop" />
-                </b-button>
+                </l-button>
             </div>
 
             <div></div>
@@ -62,7 +62,7 @@
                 <iframe :src="route" />
             </div>
         </div>
-    </b-modal>
+    </l-modal>
 </template>
 
 <script>

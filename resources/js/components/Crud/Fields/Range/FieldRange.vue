@@ -5,8 +5,8 @@
         :value="value"
         class="lit-field__range"
     >
-        <b-input-group>
-            <b-form-input
+        <l-input-group>
+            <l-form-input
                 ref="input"
                 :value="value"
                 @input="input"
@@ -17,7 +17,7 @@
                 :step="field.step"
                 v-bind:disabled="field.readonly"
             />
-        </b-input-group>
+        </l-input-group>
 
         <slot />
     </lit-base-field>

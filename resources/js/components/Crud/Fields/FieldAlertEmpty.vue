@@ -1,5 +1,5 @@
 <template>
-    <b-alert
+    <l-alert
         show
         variant="info"
         v-html="__('base.no_item_selected', { item: field.title })"

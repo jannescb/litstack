@@ -31,7 +31,7 @@
             </div>
         </template>
         <template v-else>
-            <b-input class="form-control" :value="value" type="text" readonly />
+            <l-input class="form-control" :value="value" type="text" readonly />
         </template>
     </lit-base-field>
 </template>

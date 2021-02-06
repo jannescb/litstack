@@ -16,12 +16,14 @@
                 <lit-spinner :variant="reverse" />
             </div>
             <div
-                :class="`lit-chart__wrapper ${
-                    chart.type == 'number' ? 'lit-chart__number' : ''
-                }`"
-                :style="`display: ${
-                    busy ? 'none' : 'block'
-                };height: ${height};`"
+                :class="
+                    `lit-chart__wrapper ${
+                        chart.type == 'number' ? 'lit-chart__number' : ''
+                    }`
+                "
+                :style="
+                    `display: ${busy ? 'none' : 'block'};height: ${height};`
+                "
             >
                 <component
                     v-if="chart.type != 'number'"
@@ -43,8 +45,8 @@
                     <template
                         v-if="
                             chart.type == 'area' ||
-                            chart.type == 'bar' ||
-                            chart.type == 'number'
+                                chart.type == 'bar' ||
+                                chart.type == 'number'
                         "
                     >
                         <h3 class="mb-0">
@@ -69,7 +71,7 @@
                     </template>
                 </div>
                 <div class="d-flex align-items-end flex-column">
-                    <b-spinner
+                    <l-spinner
                         v-if="busyReloading"
                         small
                         type="grow"
@@ -210,7 +212,7 @@ export default {
     beforeMount() {
         this.setHeight();
 
-        Lit.bus.$on('chartRangeChanged', (range) => (this.active = range));
+        Lit.bus.$on('chartRangeChanged', range => (this.active = range));
     },
     async mounted() {
         this.busy = true;

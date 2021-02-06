@@ -1,8 +1,8 @@
 <template>
     <div>
-        <b-button variant="secondary" size="sm" @click="toggle">
+        <l-button variant="secondary" size="sm" @click="toggle">
             {{ __('base.toggle_all') }}
-        </b-button>
+        </l-button>
     </div>
 </template>
 <script>
@@ -80,7 +80,10 @@ export default {
             'litPermissionsRolePermissions',
         ]),
         group() {
-            return this.item.name.split(' ').slice(1).join(' ');
+            return this.item.name
+                .split(' ')
+                .slice(1)
+                .join(' ');
         },
     },
 };

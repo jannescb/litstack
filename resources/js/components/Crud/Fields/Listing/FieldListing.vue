@@ -20,21 +20,22 @@
                     @changed="changed(i, field.id, $event)"
                 />
             </div>
-            <b-button
+            <l-button
                 variant="transparent"
                 v-b-tooltip
                 :title="__('base.item_delete', { item: 'Item' })"
                 size="sm"
-                class="btn-square lit-block-delete"
+                square
+                class="lit-block-delete"
                 @click="remove(i)"
             >
                 <lit-fa-icon icon="trash" />
-            </b-button>
+            </l-button>
         </div>
 
-        <b-button @click="add(val.length)" size="sm">
+        <l-button @click="add(val.length)" size="sm">
             <lit-fa-icon icon="plus" />
-        </b-button>
+        </l-button>
     </lit-base-field>
 </template>
 
