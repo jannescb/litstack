@@ -573,11 +573,11 @@ export default {
     @media (max-width: map-get($grid-breakpoints, $nav-breakpoint-mobile)) {
         margin-left: 0;
         margin-right: 0;
-        .lit-index-table {
-            .card-body {
-                padding: 0;
-            }
-        }
+        // .lit-index-table {
+        //     .card-body {
+        //         padding: 0;
+        //     }
+        // }
     }
 }
 </style>

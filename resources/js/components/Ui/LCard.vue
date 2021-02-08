@@ -1,12 +1,12 @@
 <template>
-    <b-card v-bind="{ noBody }" v-on="$listeners">
+    <div v-on="$listeners" class="bg-white rounded-lg shadow p-8">
         <slot />
-    </b-card>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'LCol',
+    name: 'LCard',
     props: ['noBody'],
 };
 </script>

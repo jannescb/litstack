@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import Litstack from './litstack';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -81,7 +80,7 @@ export default {
 
         this.showHiddenElements();
 
-        this.$Bus.$on('error', (e) => {
+        this.$Bus.$on('error', e => {
             this.$bvToast.toast(e, {
                 variant: 'danger',
             });
@@ -134,12 +133,6 @@ export default {
                     .querySelector('#litstack')
                     .classList.toggle('navigation-visible');
             };
-
-            document
-                .querySelector('.lit-main-navigation-toggle')
-                .addEventListener('click', (e) => {
-                    toggleSidebar();
-                });
         },
 
         /**

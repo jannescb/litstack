@@ -25,7 +25,7 @@ requireComponent.keys().forEach(fileName => {
 
     // Register component globally
     Vue.component(
-        `${componentName}`,
+        `${prefix}${componentName}`,
         componentConfig.default || componentConfig
     );
 });

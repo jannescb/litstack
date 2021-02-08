@@ -1,5 +1,5 @@
 @auth(config('lit.guard'))
-    <nav class="lit-navigation">
+    <nav id="lit-sidebar" class="h-full bg-white border-r border-r-gray-mid">
 
         @include('litstack::partials.nav_loader')
 

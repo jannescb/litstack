@@ -1,12 +1,12 @@
 <template>
-    <b-col v-bind="{ col, xs, sm, md, lg, xl }" v-on="$listeners">
+    <b-list-group-item v-bind="{ href, active }" v-on="$listeners">
         <slot />
-    </b-col>
+    </b-list-group-item>
 </template>
 
 <script>
 export default {
-    name: 'LListGroup',
-    props: ['col', 'xs', 'sm', 'md', 'lg', 'xl'],
+    name: 'LListGroupItem',
+    props: ['href', 'active'],
 };
 </script>

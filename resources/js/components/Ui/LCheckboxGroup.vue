@@ -1,20 +1,22 @@
 <template>
-    <b-checkbox-group
-        v-bind="{
-            value,
-            checked,
-            optcheckedions,
-            stacked,
-        }"
-        v-on="$listeners"
-    >
-        <slot />
-    </b-checkbox-group>
+    <div>
+        <b-checkbox-group
+            v-bind="{
+                value,
+                checked,
+                optcheckedions,
+                stacked,
+            }"
+            v-on="$listeners"
+        >
+            <slot />
+        </b-checkbox-group>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'LCheckbox',
+    name: 'LCheckboxGroup',
     props: ['value', 'checked', 'optcheckedions', 'stacked'],
 };
 </script>

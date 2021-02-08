@@ -1,17 +1,10 @@
-<nav class="lit-topbar justify-content-between align-items-center">
+<nav class="flex justify-between items-center bg-blue-dark px-4">
     <div>
-        <a href="{{lit()->url('/')}}" class="lit-brand">
+        <a href="{{lit()->url('/')}}" class="-mb-3 inline-block">
             @include('litstack::partials.logo')
-            {{-- <img src="{{ route('lit.logo') }}" class="img-fluid" alt=""> --}}
         </a>
     </div>
-    <div>
-        <div class="lit-hide" id="lit-topbar-right">
-        
-            @auth(config('lit.guard'))
-                @include('litstack::partials.topbar.navigation')
-            @endauth
-            
-        </div>
-    </div>
+    @auth(config('lit.guard'))
+        @include('litstack::partials.topbar.navigation')
+    @endauth
 </nav>

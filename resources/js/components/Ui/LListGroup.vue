@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'LListGroupItem',
+    name: 'LListGroup',
     props: ['flush'],
 };
 </script>

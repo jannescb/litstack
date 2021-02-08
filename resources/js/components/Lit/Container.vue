@@ -1,34 +1,24 @@
 <template>
-    <l-container :class="`lit-container`" :fluid="fluid">
+    <!-- TODO: make fluid expand withs -->
+    <div
+        class="block mx-auto"
+        :class="{
+            'w-full px-10': expand,
+            'max-w-7xl px-10': !expand,
+        }"
+    >
         <slot />
-    </l-container>
+    </div>
 </template>
 
 <script>
 export default {
     name: 'Container',
     props: {
-        fluid: {
-            type: String,
-            default() {
-                return 'sm';
-            },
+        expand: {
+            type: Boolean,
+            default: false,
         },
     },
 };
 </script>
-
-<style lang="scss">
-@import '@lit-sass/_variables';
-
-.lit-container {
-    margin: 0 auto;
-    padding: (/*$container-padding-y*/ $page-nav-padding-y) $container-padding-x
-        $container-padding-y $container-padding-x !important;
-    //padding: 0 $container-padding-x $container-padding-y $container-padding-x !important;
-    @media (max-width: map-get($grid-breakpoints, $nav-breakpoint-mobile)) {
-        padding: 1rem !important;
-        max-width: unset;
-    }
-}
-</style>

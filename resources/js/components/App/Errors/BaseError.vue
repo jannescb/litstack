@@ -1,6 +1,6 @@
 <template>
     <lit-container
-        class="d-flex justify-content-around align-items-center"
+        class="flex justify-around items-center"
         style="height: 100vh;"
     >
         <div class="text-center">

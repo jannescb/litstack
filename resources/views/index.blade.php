@@ -45,22 +45,13 @@
         lit()->config('navigation')->main;
     @endphp
     <div id="litstack">
+        
+        @include('litstack::partials.topbar.topbar')
+        @include('litstack::partials.navigation')
 
-            @include('litstack::partials.topbar.topbar')
-            @include('litstack::partials.navigation')
-            <b-button
-            variant="primary"
-            class="d-block d-lg-none btn-square lit-main-navigation-toggle"
-        >
-            <lit-fa-icon icon="stream" />
-        </b-button>
-
-        <main>
-            <div class="lit-content">
-                @yield('content') 
-            </div>
-            
-             @include('litstack::partials.spinner')
+        <main id="lit-content" class="overflow-x-hidden overflow-y-scroll h-screen">
+            @yield('content') 
+            @include('litstack::partials.spinner')
         </main>
 
     </div>

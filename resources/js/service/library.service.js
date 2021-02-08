@@ -37,3 +37,5 @@ Vue.component('v-select', vSelect);
 
 // prototypes
 Vue.prototype.$bus = Bus;
+
+Vue.component('popper', require('vue-popperjs'));

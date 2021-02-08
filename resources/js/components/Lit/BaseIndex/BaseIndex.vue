@@ -1,131 +1,125 @@
 <template>
-    <div>
-        <l-card
-            no-body
-            class="lit-index-table"
-            :style="noCard ? 'box-shadow: none;' : ''"
-        >
-            <b-tabs card v-if="hasTabs" @activate-tab="newTab">
-                <b-tab
-                    :title="'title' in t ? t.title : t"
-                    :active="t == tab"
-                    v-for="(t, index) in tabs"
-                    :key="index"
-                    no-body
-                />
-            </b-tabs>
-            <div class="card-body">
-                <slot name="header" v-bind:tab="tab" />
+    <l-card>
+        <b-tabs card v-if="hasTabs" @activate-tab="newTab">
+            <b-tab
+                :title="'title' in t ? t.title : t"
+                :active="t == tab"
+                v-for="(t, index) in tabs"
+                :key="index"
+                no-body
+            />
+        </b-tabs>
+        <div class="card-body">
+            <slot name="header" v-bind:tab="tab" />
 
-                <lit-base-index-table-form
-                    v-if="
-                        searchKeys.length != 0 ||
-                            !_.isEmpty(sortBy) ||
-                            !_.isEmpty(filter)
-                    "
-                >
-                    <l-input-group>
-                        <l-input-group-prepend is-text>
-                            <lit-fa-icon icon="search" />
-                        </l-input-group-prepend>
+            <lit-base-index-table-form
+                v-if="
+                    searchKeys.length != 0 ||
+                    !_.isEmpty(sortBy) ||
+                    !_.isEmpty(filter)
+                "
+            >
+                <l-input-group>
+                    <l-input-group-prepend is-text>
+                        <lit-fa-icon icon="search" />
+                    </l-input-group-prepend>
 
-                        <lit-base-index-table-search
-                            :name-singular="nameSingular"
-                            :name-plural="namePlural"
-                            :filter-scopes="filter_scopes"
-                            @search="doSearch"
-                            :style="
-                                filter_scopes.length > 0
-                                    ? 'border-right-color: transparent'
-                                    : ''
-                            "
-                        />
-
-                        <l-input-group-append
-                            is-text
-                            class="lit-index-table__active-filters"
-                            variant="primary"
-                            v-if="filter_scopes.length > 0"
-                            style="background: transparent; border-left: none;"
-                        >
-                            <lit-base-index-filter-tag
-                                v-for="(scope, key) in filter_scopes"
-                                :key="key"
-                                :filter="scope"
-                                @remove="removeFilter"
-                            />
-                        </l-input-group-append>
-                    </l-input-group>
-                    <lit-base-index-table-filter
-                        :filter="filter"
+                    <lit-base-index-table-search
+                        :name-singular="nameSingular"
+                        :name-plural="namePlural"
                         :filter-scopes="filter_scopes"
-                        v-if="hasFilter"
-                        @addFilter="addFilter"
-                        @removeFilter="removeFilter"
-                        @resetFilter="resetFilter"
+                        @search="doSearch"
+                        :style="
+                            filter_scopes.length > 0
+                                ? 'border-right-color: transparent'
+                                : ''
+                        "
                     />
 
-                    <lit-base-index-table-sort
-                        :sortBy="sortBy"
-                        v-if="hasSort"
-                        :sortByDefault="sortByDefault"
-                        @sort="sort"
-                    />
-                </lit-base-index-table-form>
-
-                <lit-base-index-table-selected-items-actions
-                    :actions="actions"
-                    :items="items"
-                    :selectedItems="selectedItems"
-                    @reload="executedActions"
-                    v-if="!!actions.length"
+                    <l-input-group-append
+                        is-text
+                        class="lit-index-table__active-filters"
+                        variant="primary"
+                        v-if="filter_scopes.length > 0"
+                        style="background: transparent; border-left: none"
+                    >
+                        <lit-base-index-filter-tag
+                            v-for="(scope, key) in filter_scopes"
+                            :key="key"
+                            :filter="scope"
+                            @remove="removeFilter"
+                        />
+                    </l-input-group-append>
+                </l-input-group>
+                <lit-base-index-table-filter
+                    :filter="filter"
+                    :filter-scopes="filter_scopes"
+                    v-if="hasFilter"
+                    @addFilter="addFilter"
+                    @removeFilter="removeFilter"
+                    @resetFilter="resetFilter"
                 />
 
-                <lit-base-index-table
-                    ref="table"
-                    :namePlural="namePlural"
-                    :sortable="canSort"
-                    :busy="isBusy"
-                    :cols="cols"
-                    :items="items"
-                    :radio="radio"
-                    :no-head="noHead"
-                    :no-select="noSelect"
-                    :small="small"
-                    :selectedItems="selectedItems"
-                    @select="select"
-                    @unselect="unselect"
+                <lit-base-index-table-sort
+                    :sortBy="sortBy"
+                    v-if="hasSort"
+                    :sortByDefault="sortByDefault"
                     @sort="sort"
-                    @loadItems="_loadItems()"
-                    @_sorted="sorted"
-                    :class="{ paginated: total > items.length }"
-                    v-on="$listeners"
-                    v-bind="$attrs"
                 />
+            </lit-base-index-table-form>
 
-                <lit-base-index-table-index-indicator
-                    :per-page="perPage"
-                    :total="total"
-                    :items="items"
-                    :current-page="currentPage"
-                    v-if="total > items.length"
+            <lit-base-index-table-selected-items-actions
+                :actions="actions"
+                :items="items"
+                :selectedItems="selectedItems"
+                @reload="executedActions"
+                v-if="!!actions.length"
+            />
+
+            <lit-base-index-table
+                ref="table"
+                :namePlural="namePlural"
+                :sortable="canSort"
+                :busy="isBusy"
+                :cols="cols"
+                :items="items"
+                :radio="radio"
+                :no-head="noHead"
+                :no-select="noSelect"
+                :small="small"
+                :selectedItems="selectedItems"
+                @select="select"
+                @unselect="unselect"
+                @sort="sort"
+                @loadItems="_loadItems()"
+                @_sorted="sorted"
+                :class="{ paginated: total > items.length }"
+                v-on="$listeners"
+                v-bind="$attrs"
+            />
+
+            <lit-base-index-table-index-indicator
+                :per-page="perPage"
+                :total="total"
+                :items="items"
+                :current-page="currentPage"
+                v-if="total > items.length"
+            />
+
+            <div
+                class="d-flex justify-content-center lit-index-table-pagination"
+                v-if="numberOfPages > 1"
+            >
+                <b-pagination-nav
+                    class="mt-2"
+                    :link-gen="linkGen"
+                    v-model="currentPage"
+                    :number-of-pages="numberOfPages"
+                    @change="goToPage"
                 />
-
-                <div
-                    class="d-flex justify-content-center lit-index-table-pagination"
-                    v-if="numberOfPages > 1"
-                >
-                    <b-pagination-nav
-                        class="mt-2"
-                        :link-gen="linkGen"
-                        v-model="currentPage"
-                        :number-of-pages="numberOfPages"
-                        @change="goToPage"
-                    />
-                </div>
             </div>
-        </l-card>
-    </div>
+        </div>
+    </l-card>
 </template>
 
 <script>
@@ -362,7 +356,7 @@ export default {
         },
         addCustomFilter(newFilter) {
             let match = false;
-            this.filter_scopes = _.map(this.filter_scopes, function(filter) {
+            this.filter_scopes = _.map(this.filter_scopes, function (filter) {
                 if (typeof scope === 'object') {
                     return filter;
                 }
@@ -426,7 +420,7 @@ export default {
             }
         },
         isItemSelected(item) {
-            return this.selectedItems.find(model => {
+            return this.selectedItems.find((model) => {
                 return model ? model.id == item.id : false;
             })
                 ? true

@@ -1,46 +1,45 @@
 <template>
-    <l-list-group flush>
-        <l-list-group-item
+    <div>
+        <div
             v-if="isTitle"
-            class="lit-nav-title"
-            v-html="item.title"
-        />
-        <template v-else-if="isSection">
+            class="text-blue-mid uppercase text-sm px-4 pb-4 pt-6"
+        >
+            {{ item.title }}
+        </div>
+
+        <div v-else-if="isSection" class="border-b border-gray-mid pb-4">
             <lit-nav-item
                 v-for="(i, index) in item"
                 :item="i"
                 :key="index"
                 v-if="!(i instanceof String) && i !== null"
             />
-            <hr class="lit-navitem-divider" />
-        </template>
+        </div>
         <template v-else>
             <component :is="item.component" v-if="hasComponent" />
-            <l-list-group-item
-                size="sm"
-                :active="active"
+            <component
+                :is="tagType"
                 :href="link"
                 @click="visible = !visible"
-                class="d-flex justify-content-between align-items-center"
+                class="flex justify-between items-center px-4 py-4 text-blue-dark text-base hover:bg-gray-light-hover"
+                :class="{
+                    'bg-gray-light border-r-4 border-blue-mid': active,
+                }"
                 v-else
             >
                 <div>
-                    <span v-html="item.icon" class="lit-nav-item_icon"></span>
+                    <span v-html="item.icon" class="text-gray-dark pr-2"></span>
                     <span v-html="item.title" />
                 </div>
-                <div
-                    class="lit-navigation-hasChildren lit-nav-item_icon lit-nav-toggle"
-                    :class="{ active: visible }"
-                    v-if="hasChildren"
-                >
+                <div :class="{ active: visible }" v-if="hasChildren">
                     <lit-fa-icon
                         icon="chevron-right"
                         class="float-right text-sm"
                     />
                 </div>
-            </l-list-group-item>
+            </component>
             <b-collapse v-if="hasChildren" v-model="visible">
-                <div class="lit-navigation-spacer">
+                <div class="py-3 bg-gray-light shadow-inner">
                     <lit-nav-item
                         v-for="(item, index) in item.children"
                         :item="item"
@@ -49,11 +48,10 @@
                 </div>
             </b-collapse>
         </template>
-    </l-list-group>
+    </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 export default {
     name: 'NavItem',
     props: {
@@ -113,61 +111,9 @@ export default {
         isTitle() {
             return this.item.type === 'title';
         },
+        tagType() {
+            return this.hasLink ? 'a' : 'div';
+        },
     },
 };
 </script>
-
-<style lang="scss">
-@import '@lit-sass/_variables';
-
-.lit-navigation {
-    .lit-nav-title {
-        text-transform: uppercase;
-        color: $nav-title-color;
-        letter-spacing: $nav-title-letter-spacing;
-        font-size: $nav-title-font-size;
-        border-bottom: none;
-    }
-
-    .list-group-item {
-        padding-right: 1rem;
-        &.active {
-            .lit-nav-item_icon {
-                color: $nav-item-active-color !important;
-            }
-        }
-    }
-
-    .lit-nav-item_icon {
-        color: $nav-item-icon-color;
-        margin-left: -4px;
-        margin-right: 10px;
-        display: inline-block;
-        width: 20px;
-        text-align: center;
-        &.lit-nav-toggle {
-            width: auto;
-        }
-    }
-    .lit-navigation .list-group-item {
-        border: none;
-    }
-    .lit-navitem-divider {
-        margin: 0 0 $nav-padding-top 0;
-        border-width: 0;
-    }
-    .lit-navigation-hasChildren {
-        font-size: 0.75rem;
-        transform: rotate(0);
-        transition: 0.2s all ease;
-        &.active {
-            transform: rotate(90deg);
-        }
-    }
-    &-spacer {
-        padding: $list-group-item-padding-y 0;
-        box-shadow: inset 0px 11px 8px -6px $gray-300,
-            inset 0px -11px 8px -6px $gray-300;
-    }
-}
-</style>

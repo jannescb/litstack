@@ -1,6 +1,6 @@
 <template>
-    <lit-container :fluid="page.expand ? 'fluid' : 'lg'">
-        <lit-navigation
+    <lit-container :expand="page.expand">
+        <lit-page-navigation
             :back="goBack.route || false"
             :back-text="goBack.text || ''"
             :breadcrumb="page.breadcrumb || {}"
@@ -14,10 +14,10 @@
                     v-bind="{ ...page.props, ...$attrs }"
                 />
             </template>
-        </lit-navigation>
+        </lit-page-navigation>
         <lit-header>
             <h3
-                class="d-flex justify-content-between align-items-baseline"
+                class="flex justify-between items-baseline"
                 v-html="page.header.title"
             />
             <template slot="actions">
@@ -38,16 +38,12 @@
             </template>
         </lit-header>
         <l-row>
-            <lit-col :width="12">
-                <l-row>
-                    <lit-base-component
-                        v-for="(component, key) in page.components"
-                        v-bind="{ ...page.props, ...$attrs }"
-                        :component="component"
-                        :key="key"
-                    />
-                </l-row>
-            </lit-col>
+            <lit-base-component
+                v-for="(component, key) in page.components"
+                v-bind="{ ...page.props, ...$attrs }"
+                :component="component"
+                :key="key"
+            />
         </l-row>
     </lit-container>
 </template>
