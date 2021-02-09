@@ -5,103 +5,85 @@
 @endsection
 
 @section('content')
-    <div class="row" id="login" style="position: absolute;top:0;right:0;left:0;bottom:0;">
-        <div class="col-12 col-lg-6 h-100">
-            <div class="d-flex justify-content-center align-items-center h-100">
-                <div class="col-8">
-                    <form method="POST" id="login" onsubmit="doLogin(event)" class="mt-4 mb-4">
-                        @csrf
-                        {{-- <h6 class="mb-3">{{ __lit('login.login') }}</h6> --}}
-                        <div class="mobile-icon text-center mb-5">
-                            <svg width="70px" height="100%" viewBox="0 0 169 263" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-                                <g transform="matrix(1,0,0,1,-204.96,-204.96)">
-                                    <path d="M204.96,368.93C204.96,391.57 223.31,409.92 245.95,409.92C268.59,409.92 286.94,391.57 286.94,368.93L286.94,245.95L204.96,245.95L204.96,368.93Z" style="fill:rgb(73,81,242);fill-rule:nonzero;"/>
-                                    <path d="M204.96,327.94C204.96,350.58 223.31,368.93 245.95,368.93C268.59,368.93 286.94,350.58 286.94,327.94L286.94,245.96L204.96,245.96L204.96,327.94Z" style="fill:rgb(64,255,164);fill-opacity:0.42;fill-rule:nonzero;"/>
-                                    <path d="M204.96,286.94C204.96,309.58 223.31,327.93 245.95,327.93C268.59,327.93 286.94,309.58 286.94,286.94L286.94,245.95L204.96,245.95L204.96,286.94Z" style="fill:rgb(64,255,164);fill-opacity:0.42;fill-rule:nonzero;"/>
-                                    <circle cx="245.95" cy="245.95" r="40.99" style="fill:rgb(64,255,164);"/>
-                                    <circle cx="332.48" cy="426.66" r="40.99" style="fill:rgb(73,81,242);"/>
-                                </g>
-                            </svg>
-                        </div>
-                        
-                        <div class="form-fields">
-                        <div class="form-group mb-5">
-                            <input 
-                                id="email" 
-                                class="form-control @error('email') is-invalid @enderror lit-login-form" 
-                                name="email" 
-                                required 
-                                @if(config('lit.login.username'))
-                                placeholder="{{ ucfirst(__lit('login.email_or_username')) }} "
-                                type="text"
-                                @else
-                                placeholder="{{ ucfirst(__lit('base.email')) }}"
-                                autocomplete="email" 
-                                type="email"
-                                @endif
-                                autofocus
-                                />
-        
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-        
-                        <div class="form-group mb-3">
-                            <input 
-                                placeholder="{{ ucfirst(__lit('base.password')) }}" 
-                                id="password" type="password" 
-                                class="form-control @error('password') is-invalid @enderror lit-login-form" 
-                                name="password" 
-                                required 
-                                autocomplete="current-password"
-                                />
-        
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                        {{-- <div class="form-group mb-3 mt-5">
-                            <input 
-                                placeholder="{{ ucfirst(__lit('2fa.code')) }}" 
-                                id="code"
-                                class="form-control lit-login-form" 
-                                name="code" 
-                                required 
-                                />
-                        </div> --}}
-        
-                        <div class="form-group d-flex justify-content-between">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember">
-        
-                                <label class="form-check-label" for="remember">
-                                    {{ __lit('login.remember_me') }}
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="text-danger text-center" id="login-failed" style="display:none;">
-                            {{ __lit('login.failed') }}
-                        </div>
-        
-                        <div class="form-group row mt-4 justify-content-center d-flex">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __lit('login.do_login') }}
-                                </button>
-                        </div>
-                    </form>
+    <div class="grid grid-cols-2">
+        <div class="col-span-2 md:col-span-1  h-screen">
+            <form method="POST" id="login" onsubmit="doLogin(event)">
+                @csrf
+                <div>
+                    <svg width="70px" height="100%" viewBox="0 0 169 263" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+                        <g transform="matrix(1,0,0,1,-204.96,-204.96)">
+                            <path d="M204.96,368.93C204.96,391.57 223.31,409.92 245.95,409.92C268.59,409.92 286.94,391.57 286.94,368.93L286.94,245.95L204.96,245.95L204.96,368.93Z" style="fill:rgb(73,81,242);fill-rule:nonzero;"/>
+                            <path d="M204.96,327.94C204.96,350.58 223.31,368.93 245.95,368.93C268.59,368.93 286.94,350.58 286.94,327.94L286.94,245.96L204.96,245.96L204.96,327.94Z" style="fill:rgb(64,255,164);fill-opacity:0.42;fill-rule:nonzero;"/>
+                            <path d="M204.96,286.94C204.96,309.58 223.31,327.93 245.95,327.93C268.59,327.93 286.94,309.58 286.94,286.94L286.94,245.95L204.96,245.95L204.96,286.94Z" style="fill:rgb(64,255,164);fill-opacity:0.42;fill-rule:nonzero;"/>
+                            <circle cx="245.95" cy="245.95" r="40.99" style="fill:rgb(64,255,164);"/>
+                            <circle cx="332.48" cy="426.66" r="40.99" style="fill:rgb(73,81,242);"/>
+                        </g>
+                    </svg>
                 </div>
-            </div>
-        </div>
+                
+                <div>
+                    <div>
+                        <input 
+                            class="form-control @error('email') is-invalid @enderror lit-login-form" 
+                            name="email" 
+                            required 
+                            @if(config('lit.login.username'))
+                            placeholder="{{ ucfirst(__lit('login.email_or_username')) }} "
+                            type="text"
+                            @else
+                            placeholder="{{ ucfirst(__lit('base.email')) }}"
+                            autocomplete="email" 
+                            type="email"
+                            @endif
+                            autofocus
+                            />
+    
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+    
+                    <div>
+                        <input 
+                            placeholder="{{ ucfirst(__lit('base.password')) }}" 
+                            id="password" type="password" 
+                            class="form-control @error('password') is-invalid @enderror lit-login-form" 
+                            name="password" 
+                            required 
+                            autocomplete="current-password"
+                            />
+    
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember">
 
-        <div class="col-6 text-center dark-logo" style="background:#0a0e23; display: flex; justify-content: center; align-items: center;">
+                        <label class="form-check-label" for="remember">
+                            {{ __lit('login.remember_me') }}
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    {{ __lit('login.failed') }}
+                </div>
+
+                <div>
+                        <button type="submit" class="btn btn-primary">
+                            {{ __lit('login.do_login') }}
+                        </button>
+                </div>
+            </form>
+        </div>
+        <div  class="col-span-2 md:col-span-1 bg-blue-dark h-screen">
             <svg width="300px" height="100%" viewBox="0 0 889 263" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
                 <g transform="matrix(1,0,0,1,-204.96,-204.96)">
                     <path d="M204.96,368.93C204.96,391.57 223.31,409.92 245.95,409.92C268.59,409.92 286.94,391.57 286.94,368.93L286.94,245.95L204.96,245.95L204.96,368.93Z" style="fill:rgb(73,81,242);fill-rule:nonzero;"/>
