@@ -12,7 +12,7 @@
         <template v-if="!field.readonly">
             <div
                 class="lit-field-wysiwyg"
-                :class="state === false ? 'form-control is-invalid' : ''"
+                :class="state === false ? 'is-invalid' : ''"
                 v-if="editor"
             >
                 <editor-menu-bar

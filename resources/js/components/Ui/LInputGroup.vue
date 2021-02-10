@@ -1,5 +1,5 @@
 <template>
-    <b-input-group
+    <div
         v-bind="{
             size,
             label,
@@ -7,9 +7,15 @@
             labelFor,
         }"
         v-on="$listeners"
+        class="border border-gray-mid rounded-lg flex"
+        :class="{
+            'h-8': size == 'sm',
+            'h-12': size == 'md',
+            'h-16': size == 'lg',
+        }"
     >
         <slot />
-    </b-input-group>
+    </div>
 </template>
 
 <script>

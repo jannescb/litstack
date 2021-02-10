@@ -1,6 +1,6 @@
 <template>
     <div class="lit-block-header d-flex">
-        <table class="form-control-expand">
+        <table>
             <l-tr>
                 <l-td class="col-sm" v-if="!field.readonly">
                     <div

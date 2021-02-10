@@ -1,12 +1,11 @@
 <template>
-    <b-input-group-prepend v-bind="{ isText }" v-on="$listeners">
+    <div class="px-2 text-base text-gray-dark">
         <slot />
-    </b-input-group-prepend>
+    </div>
 </template>
 
 <script>
 export default {
     name: 'LInputGroupPrepend',
-    props: ['isText'],
 };
 </script>

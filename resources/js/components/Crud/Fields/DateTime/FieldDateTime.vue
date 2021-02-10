@@ -21,17 +21,13 @@
                         v-slot="{ inputValue, inputEvents }"
                         v-if="!field.inline"
                     >
-                        <input
-                            class="form-control lit-field-input"
-                            :value="inputValue"
-                            v-on="inputEvents"
-                        />
+                        <input :value="inputValue" v-on="inputEvents" />
                     </template>
                 </v-date-picker>
             </div>
         </template>
         <template v-else>
-            <l-input class="form-control" :value="value" type="text" readonly />
+            <l-input :value="value" type="text" readonly />
         </template>
     </lit-base-field>
 </template>

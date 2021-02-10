@@ -34,7 +34,7 @@
                     </template>
                 </div>
             </label>
-            <div class="input-group">
+            <div>
                 <slot :state="state" />
                 <l-form-invalid-feedback
                     v-for="(message, key) in messages"

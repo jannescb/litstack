@@ -40,7 +40,6 @@
         </template>
         <template v-else>
             <div
-                class="form-control"
                 style="display: inline-block; width: auto; flex: none;"
                 readonly
                 v-html="value"

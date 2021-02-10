@@ -21,7 +21,7 @@
                 }}
             </a>
         </template>
-        <div class="form-control-expand" v-if="model.id">
+        <div v-if="model.id">
             <div v-if="busy" class="d-flex justify-content-around">
                 <lit-spinner />
             </div>
@@ -296,7 +296,7 @@ export default {
          */
         async newOrder() {
             let payload = {
-                ids: this.sortableBlocks.map((item) => item.id),
+                ids: this.sortableBlocks.map(item => item.id),
             };
 
             let response = await this.sendNewOrder(payload);

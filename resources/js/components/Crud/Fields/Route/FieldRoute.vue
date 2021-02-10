@@ -10,7 +10,7 @@
         </template>
 
         <template v-else>
-            <b-input class="form-control" :value="value" type="text" readonly />
+            <l-input :value="value" type="text" readonly />
         </template>
         <slot />
     </lit-base-field>

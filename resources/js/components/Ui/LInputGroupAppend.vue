@@ -1,12 +1,11 @@
 <template>
-    <b-input-group-append v-bind="{ isText }" v-on="$listeners">
+    <div class="px-2">
         <slot />
-    </b-input-group-append>
+    </div>
 </template>
 
 <script>
 export default {
     name: 'LInputGroupAppend',
-    props: ['isText'],
 };
 </script>

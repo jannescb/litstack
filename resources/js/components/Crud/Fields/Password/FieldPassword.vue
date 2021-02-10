@@ -8,7 +8,6 @@
     >
         <l-input-group>
             <l-input
-                class="form-control"
                 :value="value"
                 :placeholder="field.placeholder"
                 :type="show ? 'text' : 'password'"

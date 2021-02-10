@@ -1,5 +1,5 @@
 <template>
-    <div class="form-control-expand">
+    <div>
         <l-alert
             show
             variant="warning"

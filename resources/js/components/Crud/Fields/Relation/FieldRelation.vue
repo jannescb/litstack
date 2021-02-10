@@ -29,7 +29,6 @@
 
         <template v-if="model.id">
             <div
-                class="form-control-expand lit-field-relation"
                 :class="{ 'mt-2': !showTableHead }"
                 v-if="field.previewType == 'table'"
             >
@@ -93,9 +92,7 @@
                     spinner-type="grow"
                     class="w-100 mt-2"
                 >
-                    <div
-                        class="lit-field-relation-link form-control d-flex justify-content-between br-2"
-                    >
+                    <div>
                         <template
                             v-if="selectedRelations.length > 0 && busy == false"
                         >

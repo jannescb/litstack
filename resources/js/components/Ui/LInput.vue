@@ -1,5 +1,6 @@
 <template>
-    <b-input
+    <input
+        class="w-full"
         v-bind="{
             readonly,
             value,
@@ -8,10 +9,9 @@
             maxlength,
             required,
             autofocus,
-            state,
             ariaDescribedby,
         }"
-        v-on="$listeners"
+        @input="$emit('input', $event.target.value)"
     />
 </template>
 

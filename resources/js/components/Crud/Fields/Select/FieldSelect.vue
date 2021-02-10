@@ -19,12 +19,7 @@
         </template>
 
         <template v-else>
-            <l-input
-                class="form-control"
-                :value="reduceByValue(value)"
-                type="text"
-                readonly
-            />
+            <l-input :value="reduceByValue(value)" type="text" readonly />
         </template>
         <slot />
     </lit-base-field>
